@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Главная - Tesseract OCR{% endblock %}
+
+{% block content %}
+<div id="carouselExampleIndicators" class="carousel slide hero" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 w-100 text-center">
+                        <h1 class="mb-4">Tesseract OCR</h1>
+                        <p class="lead mb-5">Распознавание текста из изображений с помощью Tesseract OCR</p>
+                        <div>
+                            <a href="{{ url_for('upload_file') }}" class="btn btn-primary btn-lg">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 w-100 text-center">
+                        <h1 class="mb-4">GPT Chat</h1>
+                        <p class="lead mb-5">Общайтесь с нашим GPT-ботом для получения ответов на ваши вопросы</p>
+                        <div>
+                            <a href="{{ url_for('gpt_chat') }}" class="btn btn-primary btn-lg">Перейти</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+    </a>
+</div>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="section-heading">О проекте</h2>
+                <p class="lead">Этот проект представляет собой веб-приложение для распознавания текста на изображениях с использованием библиотеки Tesseract OCR. Вы можете загрузить изображение, выбрать язык текста, и приложение автоматически распознает и отобразит текст из изображения. Также у нас есть GPT-чат, который позволяет вам общаться с нашим AI-ботом для получения ответов на ваши вопросы.</p>
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-heading">Преимущества</h2>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check text-success"></i> Быстрое и точное распознавание текста</li>
+                    <li><i class="fas fa-check text-success"></i> Поддержка множества языков</li>
+                    <li><i class="fas fa-check text-success"></i> Простой и удобный интерфейс</li>
+                    <li><i class="fas fa-check text-success"></i> Бесплатное использование</li>
+                    <li><i class="fas fa-check text-success"></i> GPT-чат для общения и получения ответов на вопросы</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

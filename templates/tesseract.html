@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}File Upload{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Выберите файл:</h1>
+    {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{cat}}">{{msg}}</div>
+    {% endfor %}
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
+        <div class="form-group">
+            <label for="file" class="font-weight-bold">Загрузите файл:</label>
+            <input type="file" name="file" id="file" class="form-control-file" required accept="image/*" max="20971520">
+        </div>
+        <div class="form-group">
+            <label for="language" class="font-weight-bold">Выберите язык:</label>
+            <select class="form-control" name="language" id="language" required>
+                <option value="eng">Английский</option>
+                <option value="rus">Русский</option>
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Загрузить</button>
+        </div>
+    </form>
+    {% if image_path %}
+    <h2 class="mt-4 text-center">Изображение:</h2>
+    <div class="text-center">
+        <img src="{{ image_path }}" alt="Image" class="img-fluid">
+    </div>
+    {% endif %}
+    {% if extracted_text %}
+    <h2 class="mt-4 text-center">Извлеченный текст:</h2>
+    <p>{{ extracted_text }}</p>
+    {% endif %}
+</div>
+{% endblock %}

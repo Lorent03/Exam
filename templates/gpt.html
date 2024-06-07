@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}GPT Chat{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">GPT Chat</h2>
+    <div class="chat-box border rounded p-3 mb-4" style="max-height: 400px; overflow-y: auto; background-color: #f8f9fa;">
+        {% for message in messages %}
+            <div class="message p-2 mb-2 rounded {{ 'bg-primary text-white' if message['role'] == 'user' else 'bg-light' }}">
+                <strong>{{ 'Вы' if message['role'] == 'user' else 'Bot' }}:</strong> {{ message['content'] }}
+            </div>
+        {% endfor %}
+    </div>
+    <form method="POST" action="{{ url_for('gpt_chat') }}">
+        <div class="form-group">
+            <label for="question">Ваш вопрос:</label>
+            <input type="text" class="form-control" id="question" name="question" required>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="submit" name="clear" class="btn btn-danger">Очистить чат</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+

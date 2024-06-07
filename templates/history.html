@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}История запросов{% endblock %}
+
+{% block content %}
+<h2>История запросов</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Извлеченный текст</th>
+            <th>Время</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in history %}
+        <tr>
+            <td>{{ row.extracted_text }}</td>
+            <td>{{ row.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
