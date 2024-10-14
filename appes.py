@@ -374,9 +374,9 @@ class Bot:
 @app.route('/gpt', methods=['GET', 'POST'])
 @login_required
 def gpt_chat():
-    bot = Bot(api_key="pat_8BIXdKJUqnzXN1vh9CEMLDkh6LZP63cYPxtrd1Duc5TXK7Oqlm7hXSfyTYp2Fr8b",
-              bot_id="7376391267590651909")
-    user_id = "7376391267590488069"
+    bot = Bot(api_key="",
+              bot_id="")
+    user_id = ""
 
     if 'chat_history' not in session:
         session['chat_history'] = []
